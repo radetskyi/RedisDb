@@ -2,13 +2,13 @@ using StackExchange.Redis;
 
 namespace RedisDb;
 
-internal class BaseKeyBuilder : IKeyBuilder
+public abstract class BaseKeyBuilder : IKeyBuilder
 {
     private readonly string _namespace;
 
-    public BaseKeyBuilder(string ns)
+    protected BaseKeyBuilder(string nameSpace)
     {
-        _namespace = ns;
+        _namespace = nameSpace;
     }
 
     public virtual RedisKey Build<T>(params string[] segments)
