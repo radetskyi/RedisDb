@@ -2,11 +2,11 @@ using StackExchange.Redis;
 
 namespace RedisDb;
 
-internal class BaseKeyBuilder : IKeyBuilder
+public class BaseKeyBuilder : IKeyBuilder
 {
     private readonly string _namespace;
 
-    public BaseKeyBuilder(string ns)
+    protected BaseKeyBuilder(string ns)
     {
         _namespace = ns;
     }
