@@ -38,7 +38,7 @@ internal class RedisDb : IRedisDb
     {
         var redisKey = _keyBuilder.Build<TEntity>(keySegments);
         var redisValue = _redisSerializer.Serialize(entity);
-        if(await Db.LockTakeAsync(redisKey, RedisToken, TimeSpan.FromMicroseconds(300)));
+        if(await Db.LockTakeAsync(redisKey, RedisToken, TimeSpan.FromMicroseconds(300)))
         {
             await  Db.StringSetAsync(redisKey,
                 redisValue,
